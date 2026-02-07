@@ -30,7 +30,10 @@ import businessservice from './assets/businessservices.jpeg';
 import locationIcon from './assets/location-icon.jpeg'; 
 import mailIcon from './assets/mail-icon.jpeg'; 
 import phoneIcon from './assets/phone-icon.jpeg';
-
+import millImg1 from './assets/millImg1.jpeg';
+import millImg2 from './assets/millImg2.jpeg';
+import millImg3 from './assets/millImg3.jpeg';
+import millImg4 from './assets/millImg4.jpeg';
 
 const Hanuman = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -232,6 +235,59 @@ const Hanuman = () => {
             </section>
           </div>
         )}
+        {activeTab === 'gallery' && (
+  <div style={{ width: '100%' }}>
+    
+    {/* GALLERY HERO / HEADER */}
+    <section style={{ 
+      padding: isMobile ? '100px 5% 40px 5%' : '140px 10% 60px 10%', 
+      backgroundColor: '#fff', 
+      textAlign: 'center' 
+    }}>
+      <SectionHeading title="Inside Our Operations" />
+      <p style={{ 
+        maxWidth: '800px', 
+        margin: '0 auto', 
+        color: '#555', 
+        fontSize: isMobile ? '1rem' : '1.15rem', 
+        lineHeight: '1.8' 
+      }}>
+        Quality is born at the source. Watch our founders and team in action at the mill, 
+        personally overseeing the processing and packaging of our premium exports to ensure 
+        they meet global safety standards.
+      </p>
+    </section>
+
+    {/* IMAGE GRID */}
+    <section style={{ padding: isMobile ? '20px 5% 80px 5%' : '0 10% 100px 10%', backgroundColor: '#fff' }}>
+      <div style={{ 
+        display: 'grid', 
+        gap: isMobile ? '15px' : '25px',
+        // Desktop: 4 cols, Tablet: 2 cols, Mobile: 1 col
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))',
+        maxWidth: '1200px',
+        margin: '0 auto'
+      }}>
+        {[millImg1, millImg2, millImg3, millImg4].map((img, idx) => (
+          <div key={idx} style={{ 
+            height: isMobile ? '280px' : '350px', 
+            borderRadius: '15px', 
+            overflow: 'hidden', 
+            boxShadow: '0 12px 30px rgba(0,0,0,0.1)',
+            border: '4px solid #f9f9f9'
+          }}>
+            <img 
+              src={img} 
+              alt={`Mill Operations ${idx + 1}`} 
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+)}
+
         {activeTab === 'about' && (
   <section style={{ 
     // Responsive padding: less on mobile to avoid empty space
@@ -995,7 +1051,7 @@ const Hanuman = () => {
         <img src={phoneIcon} alt="Phone" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
         <div>
           <strong style={{ color: '#D97706', fontSize: '0.9rem', display: 'block' }}>Contact Us</strong>
-          <p style={{ margin: '0', fontSize: '0.85rem', opacity: 0.8 }}>9381112460</p>
+          <p style={{ margin: '0', fontSize: '0.85rem', opacity: 0.8 }}>+919381112460</p>
         </div>
       </div>
     </div>
